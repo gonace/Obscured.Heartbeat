@@ -66,7 +66,7 @@ host.search_heartbeats("domain.tld", { type: :comment, limit: 20, skip: 0, order
 ```
 
 #### Service
-```
+```ruby
 module Obscured
   class HostHeartbeatService
     include Mongoid::Timeline::Service::Base
