@@ -15,7 +15,7 @@ Obscured Heartbeat adds heartbeat to a separate collection for an entity (Docume
 
 ##### Add this line to your application's Gemfile
 ```ruby
-gem 'Obscured.Heartbeat, :git => 'git@github.com:gonace/Obscured.Heartbeat.git', :branch => 'master'
+gem 'obscured-heartbeat', :git => 'https://github.com/gonace/Obscured.Heartbeat.git', :branch => 'master'
 ```
 
 ##### Execute
