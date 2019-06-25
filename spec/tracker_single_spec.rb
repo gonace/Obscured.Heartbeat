@@ -69,14 +69,14 @@ describe Mongoid::Heartbeat::Tracker do
         end
       end
 
-      context 'with limit' do
+      context 'via id with limit' do
         let(:response) { host.search_heartbeats(host.id.to_s, limit: 5) }
 
         it { expect(response.count).to eq(5) }
       end
 
-      context 'with limit and type' do
-        let(:response) { host.search_heartbeats(host.id, limit: 10, type: :payment) }
+      context 'via hostname with limit' do
+        let(:response) { host.search_heartbeats(template[:hostname], limit: 10) }
 
         it { expect(response.length).to eq(10) }
       end

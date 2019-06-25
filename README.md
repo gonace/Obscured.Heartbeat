@@ -49,7 +49,7 @@ end
 
 
 host = Obscured::Host.create(:name => "John Doe", :hostname => "domain.tld")
-heartbeat = account.add_heartbeat({ ... })
+heartbeat = host.add_heartbeat(distribution: { name: 'Ubuntu', release: '19.04', codename: 'disco', description: 'Ubuntu 19.04' }, hostname: 'host.domain.tld', ip_address: '10.0.1.1', uptime: Time.now.to_i)
 
 #returns array of heartbeats for document (proprietor)
 host.get_heartbeat
@@ -59,10 +59,10 @@ host.heartbeats
 host.get_heartbeat(heartbeat.id.to_s)
 
 #returns array of heartbeats by predefined params, supports pagination
-host.find_heartbeats({ type: nil, producer: nil }, { limit: 20, skip: 0, order: :created_at.desc, only: [:id, :type, :message, :producer, :created_at, :updated_at, :proprietor] })
+host.find_heartbeats({ hostname: "domain.tld" }, { limit: 20, skip: 0, order: :created_at.desc, only: [:id, :distrubuton, :hostname, :ip_address, :uptime, :created_at, :updated_at, :proprietor] })
 
 #retuns array of heartbeats
-host.search_heartbeats("domain.tld", { type: :comment, limit: 20, skip: 0, order: :created_at.desc })
+host.search_heartbeats("domain.tld", { limit: 20, skip: 0, order: :created_at.desc })
 ```
 
 #### Service
