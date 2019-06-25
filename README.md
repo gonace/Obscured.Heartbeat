@@ -32,7 +32,7 @@ require 'obscured-heartbeat'
 
 
 ### Example
-#### Usage
+#### Document
 ```ruby
 require 'obscured-heartbeat'
 
@@ -63,4 +63,26 @@ host.find_heartbeats({ type: nil, producer: nil }, { limit: 20, skip: 0, order: 
 
 #retuns array of heartbeats
 host.search_heartbeats("domain.tld", { type: :comment, limit: 20, skip: 0, order: :created_at.desc })
+```
+
+#### Service
+```
+module Obscured
+  class HostHeartbeatService
+    include Mongoid::Timeline::Service::Base
+  end
+end
+
+module Obscured
+  class PackageSynchronizer
+    def initialize(host)
+      @host = host
+      @service = Obscured::HostHeartbeatService.new
+    end
+
+    def last_heartbeat
+      @host.by(proprietor: { host_id: host.id }).last
+    end
+  end
+end
 ```
