@@ -7,27 +7,37 @@ require_relative 'helpers/gateway_document'
 
 
 describe Mongoid::Heartbeat::Tracker do
-  let!(:message) { 'Praesent a massa dui. Etiam eget purus consequat, mollis erat et, rhoncus tortor.' }
   let(:host) { FactoryBot.create(:host) }
   let(:gateway) { FactoryBot.create(:gateway) }
+  let!(:template) {
+    {
+      distribution: {
+        name: 'Ubuntu',
+        release: '19.04',
+        codename: 'disco',
+        description: 'Ubuntu 19.04'
+      },
+      hostname: 'host.domain.tld',
+      ip_address: '10.0.1.1',
+      uptime: Time.now.to_i
+    }
+  }
 
   describe 'write heartbeat' do
     context 'validates that that heartbeats is written to correct collection' do
-      let!(:host_heartbeat) { host.add_heartbeat(type: :comment, message: message, producer: host.id) }
-      let!(:gateway_heartbeat) { gateway.add_heartbeat(type: :change, message: message, producer: gateway.id) }
+      let!(:host_heartbeat) { host.add_heartbeat(template) }
+      let!(:gateway_heartbeat) { gateway.add_heartbeat(template) }
 
       context 'for host' do
-        it { expect(host_heartbeat.type).to eq(:comment) }
-        it { expect(host_heartbeat.message).to eq(message) }
+        it { expect(host_heartbeat.hostname).to eq(template[:hostname]) }
         it { expect(host_heartbeat.proprietor).to eq(host_id: host.id) }
 
         context 'get heartbeat' do
-          let!(:heartbeat) { host.add_heartbeat(type: :comment, message: message, producer: host.id) }
+          let!(:heartbeat) { host.add_heartbeat(template) }
           let!(:response) { host.get_heartbeat(heartbeat.id) }
 
-          it { expect(response.id).to eq(heartbeat.id) }
-          it { expect(response.type).to eq(heartbeat.type) }
-          it { expect(response.message).to eq(heartbeat.message) }
+          it { expect(response.hostname).to eq(template[:hostname]) }
+          it { expect(response.proprietor).to eq("host_id" => host.id) }
         end
 
         context 'get heartbeats' do
@@ -37,23 +47,23 @@ describe Mongoid::Heartbeat::Tracker do
         end
 
         context 'find heartbeats' do
-          let!(:heartbeat) { host.add_heartbeat(type: :comment, message: message, producer: host.id) }
-          let!(:heartbeat) { host.add_heartbeat(type: :foobar, message: message, producer: host.id) }
-          let!(:heartbeat3) { host.add_heartbeat(type: :foobar, message: message, producer: host.id) }
-          let!(:response) { host.find_heartbeats({ type: :foobar }, { }) }
+          let!(:heartbeat) { host.add_heartbeat(template) }
+          let!(:heartbeat) { host.add_heartbeat(template) }
+          let!(:heartbeat3) { host.add_heartbeat(template) }
+          let!(:response) { host.find_heartbeats({ hostname: template[:hostname] }, { }) }
 
-          it { expect(response.length).to eq(2) }
+          it { expect(response.length).to eq(3) }
         end
 
         context 'search heartbeats' do
           before(:each) do
             10.times do
-              host.add_heartbeat(type: :comment, message: message, producer: host.id)
+              host.add_heartbeat(template)
             end
           end
 
-          let!(:heartbeat) { host.add_heartbeat(type: :comment, message: message, producer: host.id) }
-          let!(:heartbeat2) { host.add_heartbeat(type: :comment, message: message, producer: host.id) }
+          let!(:heartbeat) { host.add_heartbeat(template) }
+          let!(:heartbeat2) { host.add_heartbeat(template) }
           let!(:response) { host.search_heartbeats(host.id, limit: 5) }
 
           it { expect(response.length).to eq(5) }
@@ -61,17 +71,16 @@ describe Mongoid::Heartbeat::Tracker do
       end
 
       context 'for gateway' do
-        it { expect(gateway_heartbeat.type).to eq(:change) }
-        it { expect(gateway_heartbeat.message).to eq(message) }
+        it { expect(gateway_heartbeat.hostname).to eq(template[:hostname]) }
         it { expect(gateway_heartbeat.proprietor).to eq(gateway_id: gateway.id) }
 
         context 'get heartbeat' do
-          let!(:heartbeat) { gateway.add_heartbeat(type: :comment, message: message, producer: gateway.id) }
+          let!(:heartbeat) { gateway.add_heartbeat(template) }
           let!(:response) { gateway.get_heartbeat(heartbeat.id) }
 
           it { expect(response.id).to eq(heartbeat.id) }
-          it { expect(response.type).to eq(heartbeat.type) }
-          it { expect(response.message).to eq(heartbeat.message) }
+          it { expect(response.hostname).to eq(template[:hostname]) }
+          it { expect(response.proprietor).to eq("gateway_id" => gateway.id) }
         end
 
         context 'get heartbeats' do
@@ -81,10 +90,10 @@ describe Mongoid::Heartbeat::Tracker do
         end
 
         context 'find heartbeats' do
-          let!(:heartbeat) { gateway.add_heartbeat(type: :comment, message: message, producer: gateway.id) }
-          let!(:heartbeat2) { gateway.add_heartbeat(type: :foobar, message: message, producer: gateway.id) }
-          let!(:heartbeat3) { gateway.add_heartbeat(type: :foobar, message: message, producer: gateway.id) }
-          let!(:response) { host.find_heartbeats({ type: :comment }, limit: 1) }
+          let!(:heartbeat) { gateway.add_heartbeat(template) }
+          let!(:heartbeat2) { gateway.add_heartbeat(template) }
+          let!(:heartbeat3) { gateway.add_heartbeat(template) }
+          let!(:response) { host.find_heartbeats({ hostname: template[:hostname] }, limit: 1) }
 
           it { expect(response.length).to eq(1) }
         end
@@ -92,7 +101,7 @@ describe Mongoid::Heartbeat::Tracker do
         context 'search heartbeats' do
           before(:each) do
             10.times do
-              gateway.add_heartbeat(type: :comment, message: message, producer: gateway.id)
+              gateway.add_heartbeat(template)
             end
           end
           let!(:response) { gateway.search_heartbeats(gateway.id, limit: 5) }
