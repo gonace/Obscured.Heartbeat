@@ -105,5 +105,23 @@ describe Mongoid::Heartbeat::Tracker do
         it { expect(host.get_heartbeat(heartbeat.id)).to be_nil }
       end
     end
+
+    context 'clear heartbeats' do
+      before(:each) do
+        10.times do
+          host.add_heartbeat(template)
+        end
+      end
+
+      it { expect(host.get_heartbeats.count).to be(10) }
+
+      context 'clear all event' do
+        before(:each) do
+          host.clear_heartbeats
+        end
+
+        it { expect(host.get_heartbeats.count).to be(0) }
+      end
+    end
   end
 end

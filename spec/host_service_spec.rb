@@ -40,6 +40,22 @@ describe Mongoid::Heartbeat::Service::Host do
     it { expect(response.to_a.count).to eq(8) }
   end
 
+  describe 'find' do
+    let!(:heartbeat) { host.add_heartbeat(template) }
+    let(:response) { service.find(heartbeat.id) }
+
+    it { expect(response).to_not be(nil) }
+    it { expect(response.id).to eq(heartbeat.id) }
+  end
+
+  describe 'find_by' do
+    let!(:heartbeat) { host.add_heartbeat(template) }
+    let(:response) { service.find_by(hostname: 'host.domain.tld') }
+
+    it { expect(response).to_not be(nil) }
+    it { expect(response.count).to eq(1) }
+  end
+
   describe 'by' do
     context 'proprietor' do
       let(:response) { service.by(proprietor: { host_id: host.id }) }
