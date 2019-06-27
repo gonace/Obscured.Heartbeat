@@ -6,7 +6,11 @@ require 'pp'
 require 'rspec'
 require 'simplecov'
 
-SimpleCov.start
+SimpleCov.start do
+  add_filter '/spec/'
+
+  track_files '{lib}/**/*.rb'
+end
 
 # pull in the code
 Dir.glob('./lib/*.rb').sort.each(&method(:require))
@@ -15,9 +19,11 @@ Mongoid.load!(File.join(File.dirname(__FILE__), '/config/mongoid.yml'), 'spec')
 Mongo::Logger.logger.level = Logger::ERROR
 
 RSpec.configure do |c|
+  c.order = :random
+  c.filter_run :focus
+  c.run_all_when_everything_filtered = true
+
   c.include FactoryBot::Syntax::Methods
-  c.filter_run_excluding integration: true
-  c.filter_run_excluding broken: true
 
   c.before(:suite) do
     FactoryBot.find_definitions
