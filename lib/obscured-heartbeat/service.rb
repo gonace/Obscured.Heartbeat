@@ -42,9 +42,6 @@ module Mongoid
           end
         end
 
-
-        private
-
         class Record
           include Mongoid::Heartbeat::Record
         end

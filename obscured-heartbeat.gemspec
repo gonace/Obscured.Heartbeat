@@ -9,14 +9,14 @@ Gem::Specification.new do |gem|
   gem.version       = Mongoid::Heartbeat::VERSION
   gem.authors       = ['Erik Hennerfors']
   gem.email         = ['erik.hennerfors@obscured.se']
-  gem.description   = "Default database heartbeat ability"
-  gem.summary       = "Default database heartbeat ability"
+  gem.description   = 'Default database heartbeat ability'
+  gem.summary       = 'Default database heartbeat ability'
   gem.homepage      = 'https://github.com/gonace/Obscured.Heartbeat'
 
   gem.required_ruby_version = '>= 2'
 
   gem.files         = `git ls-files`.split($INPUT_RECORD_SEPARATOR)
-  gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
+  gem.executables   = gem.files.grep(%r{^bin/}).map { |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ['lib']
 

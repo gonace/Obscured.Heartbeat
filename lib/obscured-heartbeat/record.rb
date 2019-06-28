@@ -41,12 +41,12 @@ module Mongoid
           doc.proprietor = params[:proprietor]
           doc
         end
+
         def make!(params = {})
           doc = make(params)
           doc.save!
           doc
         end
-
 
         def by(params = {}, options = {})
           limit = options[:limit].blank? ? nil : options[:limit].to_i
