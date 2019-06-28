@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../lib/obscured-heartbeat'
 require_relative 'setup'
 require_relative 'helpers/host_document'
 
