@@ -1,4 +1,4 @@
-<a href="https://snyk.io/test/github/gonace/obscured.heartbeat"><img src="https://snyk.io/test/github/gonace/obscured.heartbeat/badge.svg" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/github/gonace/obscured.heartbeat" style="max-width:100%;"></a>
+[![Vulnerabilities](https://snyk.io/test/github/gonace/obscured.heartbeat/badge.svg)](https://snyk.io/test/github/gonace/obscured.heartbeat)
 [![Build Status](https://travis-ci.org/gonace/Obscured.Heartbeat.svg?branch=master)](https://travis-ci.org/gonace/Obscured.Heartbeat)
 [![Test Coverage](https://codeclimate.com/github/gonace/Obscured.Heartbeat/badges/coverage.svg)](https://codeclimate.com/github/gonace/Obscured.Heartbeat)
 [![Code Climate](https://codeclimate.com/github/gonace/Obscured.Heartbeat/badges/gpa.svg)](https://codeclimate.com/github/gonace/Obscured.Heartbeat)
