@@ -9,9 +9,9 @@ PATH
 GEM
   remote: http://rubygems.org/
   specs:
-    activemodel (6.0.1)
-      activesupport (= 6.0.1)
-    activesupport (6.0.1)
+    activemodel (6.0.2)
+      activesupport (= 6.0.2)
+    activesupport (6.0.2)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
@@ -28,7 +28,7 @@ GEM
       concurrent-ruby (~> 1.0)
     json (2.2.0)
     minitest (5.13.0)
-    mongo (2.11.0)
+    mongo (2.11.2)
       bson (>= 4.6.0, < 5.0.0)
     mongoid (7.0.5)
       activemodel (>= 5.1, < 6.1)
@@ -57,7 +57,7 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    zeitwerk (2.2.1)
+    zeitwerk (2.2.2)
 
 PLATFORMS
   ruby
