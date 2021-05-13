@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://www.github.com/gonace/Obscured.Heartbeat/compare/v0.1.0...v0.2.0) (2021-05-13)
+
+
+### Features
+
+* updated bundler and version ([67eae54](https://www.github.com/gonace/Obscured.Heartbeat/commit/67eae548c9c58a80fa433befc00f82e2cf8bcbbf))
+
 ## 0.1.0 (2021-05-13)
 
 
