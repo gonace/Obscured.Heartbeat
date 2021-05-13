@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    obscured-heartbeat (1.0.1)
+    obscured-heartbeat (1.4.0)
       activesupport
       mongoid
       mongoid_search
