@@ -1,3 +1,4 @@
+[![Gem Version](https://badge.fury.io/rb/obscured-heartbeat.svg)](https://badge.fury.io/rb/obscured-heartbeat)
 [![Vulnerabilities](https://snyk.io/test/github/gonace/obscured.heartbeat/badge.svg)](https://snyk.io/test/github/gonace/obscured.heartbeat)
 [![Build Status](https://travis-ci.org/gonace/Obscured.Heartbeat.svg?branch=master)](https://travis-ci.org/gonace/Obscured.Heartbeat)
 [![Test Coverage](https://codeclimate.com/github/gonace/Obscured.Heartbeat/badges/coverage.svg)](https://codeclimate.com/github/gonace/Obscured.Heartbeat)
