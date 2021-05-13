@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.4.0](https://www.github.com/gonace/Obscured.Heartbeat/compare/v0.3.0...v0.4.0) (2021-05-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* done some refactoring" && git push origin master
+
+### Features
+
+* Updated namespace ([d74628c](https://www.github.com/gonace/Obscured.Heartbeat/commit/d74628c1a108c817475e4a4dd7a040d2d4219019))
+
+
+### Code Refactoring
+
+* done some refactoring" && git push origin master ([54b6254](https://www.github.com/gonace/Obscured.Heartbeat/commit/54b62549c3cb99af1dd68c3a85c5463202be6138))
+
 ## [0.3.0](https://www.github.com/gonace/Obscured.Heartbeat/compare/v0.2.0...v0.3.0) (2021-05-13)
 
 
