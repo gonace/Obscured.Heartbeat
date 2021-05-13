@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://www.github.com/gonace/Obscured.Heartbeat/compare/v0.2.0...v0.3.0) (2021-05-13)
+
+
+### Features
+
+* Updated namespace ([455cb06](https://www.github.com/gonace/Obscured.Heartbeat/commit/455cb06442a93a1807706fa52f099bab459cbaf5))
+
 ## [0.2.0](https://www.github.com/gonace/Obscured.Heartbeat/compare/v0.1.0...v0.2.0) (2021-05-13)
 
 
