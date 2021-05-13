@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://www.github.com/gonace/Obscured.Heartbeat/compare/v1.4.1...v1.5.0) (2021-05-13)
+
+
+### Features
+
+* bumping version ([1604c24](https://www.github.com/gonace/Obscured.Heartbeat/commit/1604c24f31afa004a880e90fefcaf79dc2584e4f))
+
 ## [0.5.0](https://www.github.com/gonace/Obscured.Heartbeat/compare/v0.4.0...v0.5.0) (2021-05-13)
 
 
