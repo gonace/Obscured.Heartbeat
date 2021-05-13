@@ -3,7 +3,7 @@
 require 'mongoid'
 require 'mongoid_search'
 
-module Mongoid
+module Obscured
   module Heartbeat
     module Record
       extend ActiveSupport::Concern

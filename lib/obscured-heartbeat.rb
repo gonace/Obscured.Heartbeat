@@ -12,7 +12,7 @@ require 'obscured-heartbeat/record'
 require 'obscured-heartbeat/service'
 require 'obscured-heartbeat/tracker'
 
-module Mongoid
+module Obscured
   module Heartbeat
   end
 end

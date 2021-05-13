@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Mongoid
+module Obscured
   module Heartbeat
     module Service
       module Base
@@ -45,7 +45,7 @@ module Mongoid
         end
 
         class Record
-          include Mongoid::Heartbeat::Record
+          include Obscured::Heartbeat::Record
         end
       end
     end

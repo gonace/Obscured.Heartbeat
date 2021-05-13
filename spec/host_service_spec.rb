@@ -5,10 +5,10 @@ require_relative 'helpers/host_document'
 require_relative 'helpers/host_service'
 
 
-describe Mongoid::Heartbeat::Service::Host do
+describe Obscured::Heartbeat::Service::Host do
   let!(:host) { FactoryBot.create(:host) }
   let!(:host2) { FactoryBot.create(:host, hostname: 'host2.domain.tld') }
-  let!(:service) { Mongoid::Heartbeat::Service::Host.new }
+  let!(:service) { Obscured::Heartbeat::Service::Host.new }
   let!(:template) {
     {
       distribution: {

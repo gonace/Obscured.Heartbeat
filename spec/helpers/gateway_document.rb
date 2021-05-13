@@ -4,7 +4,7 @@ module Obscured
   class Gateway
     include Mongoid::Document
     include Mongoid::Timestamps
-    include Mongoid::Heartbeat::Tracker
+    include Obscured::Heartbeat::Tracker
 
     store_in collection: 'gateways'
 

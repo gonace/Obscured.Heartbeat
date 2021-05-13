@@ -3,7 +3,7 @@
 require_relative '../../lib/obscured-heartbeat/record'
 
 FactoryBot.define do
-  factory :heartbeat, class: Mongoid::Heartbeat::Record do
+  factory :heartbeat, class: Obscured::Heartbeat::Record do
     distribution {
       {
         name: 'Ubuntu',

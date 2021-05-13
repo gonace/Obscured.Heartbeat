@@ -4,7 +4,7 @@ require_relative 'setup'
 require_relative 'helpers/host_document'
 
 
-describe Mongoid::Heartbeat::Tracker do
+describe Obscured::Heartbeat::Tracker do
   let(:host) { FactoryBot.create(:host) }
   let(:host2) { FactoryBot.create(:host, hostname: 'host2.domain.tld') }
   let!(:template) {

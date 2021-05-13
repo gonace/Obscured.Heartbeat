@@ -6,7 +6,7 @@ require 'obscured-heartbeat/version'
 
 Gem::Specification.new do |gem|
   gem.name          = 'obscured-heartbeat'
-  gem.version       = Mongoid::Heartbeat::VERSION
+  gem.version       = Obscured::Heartbeat::VERSION
   gem.authors       = ['Erik Hennerfors']
   gem.email         = ['erik.hennerfors@obscured.se']
   gem.description   = 'Default database heartbeat ability'

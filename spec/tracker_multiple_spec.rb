@@ -5,7 +5,7 @@ require_relative 'helpers/host_document'
 require_relative 'helpers/gateway_document'
 
 
-describe Mongoid::Heartbeat::Tracker do
+describe Obscured::Heartbeat::Tracker do
   let(:host) { FactoryBot.create(:host) }
   let(:gateway) { FactoryBot.create(:gateway) }
   let!(:template) {

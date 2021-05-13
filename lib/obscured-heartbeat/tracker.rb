@@ -2,13 +2,13 @@
 
 require 'active_support/concern'
 
-module Mongoid
+module Obscured
   module Heartbeat
     module Tracker
       extend ActiveSupport::Concern
 
       class Record
-        include Mongoid::Heartbeat::Record
+        include Obscured::Heartbeat::Record
       end
 
       # Adds heartbeat to the x_heartbeat collection for document. This is
