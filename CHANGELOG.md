@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.5.1](https://www.github.com/gonace/Obscured.Heartbeat/compare/v1.5.0...v1.5.1) (2021-05-14)
+
+
+### Bug Fixes
+
+* Updated gem(s) ([a906e14](https://www.github.com/gonace/Obscured.Heartbeat/commit/a906e146233ff64c440e4f0b4239d4e4565c16c8))
+
 ## [1.5.0](https://www.github.com/gonace/Obscured.Heartbeat/compare/v1.4.1...v1.5.0) (2021-05-13)
 
 
